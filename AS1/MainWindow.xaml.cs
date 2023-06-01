@@ -24,5 +24,12 @@ namespace AS1
         {
             InitializeComponent();
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Admin admin = new Admin();
+            Close();
+            admin.Show();
+        }
     }
 }

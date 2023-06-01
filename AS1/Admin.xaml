@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:AS1"
         mc:Ignorable="d"
         Title="Admin" Height="610" Width="1070">
-    <Grid>
+    <Grid MouseLeftButtonUp="Grid_MouseLeftButtonUp">
         <DataGrid x:Name="grid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="442,102,44,103"/>
         <Label Content="Product Name" HorizontalAlignment="Left" Margin="30,168,0,0" VerticalAlignment="Top" FontSize="20" Height="38" Width="138"/>
         <Label Content="Product ID" HorizontalAlignment="Left" Margin="30,102,0,0" VerticalAlignment="Top" FontSize="20" Height="38" Width="138"/>
@@ -16,9 +16,9 @@
         <TextBox x:Name="ProductId" HorizontalAlignment="Left" Margin="177,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" FontSize="20" Height="38"/>
         <TextBox x:Name="Amount" HorizontalAlignment="Left" Margin="177,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" FontSize="20" Height="37"/>
         <TextBox x:Name="Price" HorizontalAlignment="Left" Margin="177,293,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" FontSize="20" Height="37"/>
-        <Button x:Name="createBtn" Content="Create" HorizontalAlignment="Left" Margin="62,368,0,0" VerticalAlignment="Top" FontSize="20" Height="63" Width="98"/>
-        <Button x:Name="Edit" Content="Edit" HorizontalAlignment="Left" Margin="177,368,0,0" VerticalAlignment="Top" FontSize="20" Height="63" Width="90"/>
-        <Button x:Name="DeleteBtn" Content="Button" HorizontalAlignment="Left" Margin="280,368,0,0" VerticalAlignment="Top" FontSize="20" Height="63" Width="90"/>
+        <Button x:Name="createBtn" Content="Create" HorizontalAlignment="Left" Margin="62,368,0,0" VerticalAlignment="Top" FontSize="20" Height="63" Width="98" Click="createBtn_Click_1"/>
+        <Button x:Name="EditBtn" Content="Edit" HorizontalAlignment="Left" Margin="177,368,0,0" VerticalAlignment="Top" FontSize="20" Height="63" Width="90" Click="EditBtn_Click"/>
+        <Button x:Name="DeleteBtn" Content="Delete" HorizontalAlignment="Left" Margin="280,368,0,0" VerticalAlignment="Top" FontSize="20" Height="63" Width="90" Click="DeleteBtn_Click"/>
 
     </Grid>
 </Window>
