@@ -5,13 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AS1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="610" Width="1070"
+         WindowStyle="None"
+        BorderBrush="Black"
+        BorderThickness="1"
+        AllowsTransparency="True" 
+        WindowState="Maximized"
+        SizeToContent="Manual">
     <Grid>
-        <Canvas>
-            <Menu Height="30" Width="800" HorizontalAlignment="Center" VerticalAlignment="Top">
-                <MenuItem Header="Admin" Click="MenuItem_Click"/>
-            </Menu>
-        </Canvas>
+        <Menu Height="46"   VerticalAlignment="Top">
+            <CalendarButton Content="Admin" Click="CalendarButton_Click_1" FontSize="16"/>
+            <CalendarButton Content="Exit" Click="CalendarButton_Click" FontSize="16"/>
+        </Menu>
 
     </Grid>
 </Window>

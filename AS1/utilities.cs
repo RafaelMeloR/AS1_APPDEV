@@ -4,13 +4,24 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 
 namespace AS1
 {
     public static class utilities
     {
+        public static class tools
+        {
+            public static Boolean numberValidation(TextCompositionEventArgs e)
+            {
+
+                e.Handled = new Regex("[^0-9.]+").IsMatch(e.Text);
+                return e.Handled;
+            }
+        }
         public static class sql
         {
             private static string getConnnectionString()

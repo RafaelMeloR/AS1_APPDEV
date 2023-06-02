@@ -5,20 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AS1"
         mc:Ignorable="d"
-        Title="Admin" Height="610" Width="1070">
+        Title="Admin" Height="550" Width="1070"
+        WindowStyle="None"
+        BorderBrush="Black"
+        BorderThickness="1"
+        AllowsTransparency="True" 
+         WindowState="Maximized"
+        SizeToContent="Manual">
+
     <Grid MouseLeftButtonUp="Grid_MouseLeftButtonUp">
-        <DataGrid x:Name="grid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="442,102,44,103"/>
-        <Label Content="Product Name" HorizontalAlignment="Left" Margin="30,168,0,0" VerticalAlignment="Top" FontSize="20" Height="38" Width="138"/>
-        <Label Content="Product ID" HorizontalAlignment="Left" Margin="30,102,0,0" VerticalAlignment="Top" FontSize="20" Height="38" Width="138"/>
-        <Label Content="Amount (Kg)" HorizontalAlignment="Left" Margin="30,235,0,0" VerticalAlignment="Top" FontSize="20" Height="37" Width="138"/>
-        <Label Content="Price (CAD/Kg)" HorizontalAlignment="Left" Margin="30,293,0,0" VerticalAlignment="Top" FontSize="20" Height="37" Width="138"/>
-        <TextBox x:Name="producName" HorizontalAlignment="Left" Margin="177,173,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" FontSize="20" Height="33"/>
-        <TextBox x:Name="ProductId" HorizontalAlignment="Left" Margin="177,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" FontSize="20" Height="38"/>
-        <TextBox x:Name="Amount" HorizontalAlignment="Left" Margin="177,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" FontSize="20" Height="37"/>
-        <TextBox x:Name="Price" HorizontalAlignment="Left" Margin="177,293,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="226" FontSize="20" Height="37"/>
-        <Button x:Name="createBtn" Content="Create" HorizontalAlignment="Left" Margin="62,368,0,0" VerticalAlignment="Top" FontSize="20" Height="63" Width="98" Click="createBtn_Click_1"/>
-        <Button x:Name="EditBtn" Content="Edit" HorizontalAlignment="Left" Margin="177,368,0,0" VerticalAlignment="Top" FontSize="20" Height="63" Width="90" Click="EditBtn_Click"/>
-        <Button x:Name="DeleteBtn" Content="Delete" HorizontalAlignment="Left" Margin="280,368,0,0" VerticalAlignment="Top" FontSize="20" Height="63" Width="90" Click="DeleteBtn_Click"/>
+        <Border BorderBrush="#FF7D7D7D" BorderThickness="1" HorizontalAlignment="Left" Height="389" Margin="30,123,0,0" VerticalAlignment="Top" Width="384"/>
+        <DataGrid x:Name="grid" Margin="442,123,44,36"/>
+        <Label Content="Product Name" HorizontalAlignment="Left" Margin="37,223,0,0" VerticalAlignment="Top" FontSize="20" Height="38" Width="138"/>
+        <Label Content="Product ID" HorizontalAlignment="Left" Margin="37,181,0,0" VerticalAlignment="Top" FontSize="20" Height="38" Width="138"/>
+        <Label Content="Amount (Kg)" HorizontalAlignment="Left" Margin="37,274,0,0" VerticalAlignment="Top" FontSize="20" Height="37" Width="138"/>
+        <Label Content="Price (CAD/Kg)" HorizontalAlignment="Left" Margin="37,321,0,0" VerticalAlignment="Top" FontSize="20" Height="37" Width="138"/>
+        <TextBox x:Name="producName" HorizontalAlignment="Left" Margin="184,228,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" FontSize="20" Height="33"/>
+        <TextBox x:Name="ProductId" HorizontalAlignment="Left" Margin="184,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" FontSize="20" Height="38" IsEnabled="False"/>
+        <TextBox x:Name="Amount" HorizontalAlignment="Left" Margin="184,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" FontSize="20" Height="37" PreviewTextInput="Amount_PreviewTextInput"/>
+        <TextBox x:Name="Price" HorizontalAlignment="Left" Margin="184,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" FontSize="20" Height="37" PreviewTextInput="Price_PreviewTextInput"/>
+        <Button x:Name="createBtn" Content="Create" HorizontalAlignment="Left" Margin="42,389,0,0" VerticalAlignment="Top" FontSize="30" Height="92" Width="110" Click="createBtn_Click_1"/>
+        <Button x:Name="EditBtn" Content="Edit" HorizontalAlignment="Left" Margin="165,389,0,0" VerticalAlignment="Top" FontSize="30" Height="92" Width="110" Click="EditBtn_Click"/>
+        <Button x:Name="DeleteBtn" Content="Delete" HorizontalAlignment="Left" Margin="292,389,0,0" VerticalAlignment="Top" FontSize="30" Height="92" Width="110" Click="DeleteBtn_Click" RenderTransformOrigin="1.367,0.397"/>
+        <Menu Height="46" VerticalAlignment="Top">
+            <CalendarButton Content="Home" FontSize="16" Click="CalendarButton_Click_1"/>
+            <CalendarButton Content="Exit" Click="CalendarButton_Click" FontSize="16"/>
+        </Menu>
+        <Label Content="Products" HorizontalAlignment="Left" Margin="45,97,0,0" VerticalAlignment="Top" Background="White" FontSize="30" FontWeight="Bold"/>
+        <Label Content="Admin Panel" HorizontalAlignment="Center" Margin="0,53,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
 
     </Grid>
 </Window>

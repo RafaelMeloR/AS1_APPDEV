@@ -25,11 +25,16 @@ namespace AS1
             InitializeComponent();
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        private void CalendarButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void CalendarButton_Click_1(object sender, RoutedEventArgs e)
         {
             Admin admin = new Admin();
-            Close();
             admin.Show();
+            Close();
         }
     }
 }

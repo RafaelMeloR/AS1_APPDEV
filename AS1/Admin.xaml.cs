@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,13 +29,25 @@ namespace AS1
             InitializeComponent();
             show();
         }
-
-        public void show()
+      
+        private void show()
         {
             string query = "Select * from Products";
             DataTable dt;
             dt= utilities.sql.Get(query);
+            dt.Columns[0].ColumnName = "Id";
+            dt.Columns[1].ColumnName = "Name";
+            dt.Columns[2].ColumnName = "Amount";
+            dt.Columns[3].ColumnName = "Price";
             grid.ItemsSource = dt.DefaultView;
+        }
+
+        private void clean()
+        {
+            producName.Text = "";
+            Amount.Text = "";
+            Price.Text = "";
+            ProductId.Text = "";
         }
 
         private void createBtn_Click_1(object sender, RoutedEventArgs e)
@@ -41,13 +55,22 @@ namespace AS1
             string query = "INSERT INTO [dbo].[Products] VALUES ('"+producName.Text+"','"+Amount.Text+"','"+Price.Text+"')";
             utilities.sql.Set(query);
             show();
+            clean();
         }
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
-            string query = "Update [dbo].[Products] Set [name] = '" + producName.Text + "',[Amount] ='" + Amount.Text + "',[price] ='" + Price.Text + "' Where [Id]="+ProductId.Text+"";
-            utilities.sql.Set(query);
-            show();
+            if (ProductId.Text == "")
+            {
+                MessageBox.Show("You must select and Product from the data grid");
+            }
+            else
+            {
+                string query = "Update [dbo].[Products] Set [name] = '" + producName.Text + "',[Amount] ='" + Amount.Text + "',[price] ='" + Price.Text + "' Where [Id]=" + ProductId.Text + "";
+                utilities.sql.Set(query);
+                show();
+                clean();
+            }
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
@@ -66,6 +89,7 @@ namespace AS1
 
             
             show();
+            clean();
         }
 
         private void Grid_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -80,6 +104,28 @@ namespace AS1
                 delete = true;
             }
            
+        }
+
+        private void CalendarButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void CalendarButton_Click_1(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            main.Show();
+            Close();
+        }
+
+        private void Amount_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+           utilities.tools.numberValidation(e);
+        }
+
+        private void Price_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            utilities.tools.numberValidation(e);
         }
     }
 }
