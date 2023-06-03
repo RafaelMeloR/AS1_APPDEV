@@ -1,7 +1,7 @@
 USE [master]
 GO
 
-/****** Object:  Database [FarmersMarket]    Script Date: 2023-06-03 1:24:26 AM ******/
+/****** Object:  Database [FarmersMarket]    Script Date: 2023-06-03 2:10:36 AM ******/
 CREATE DATABASE [FarmersMarket]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -115,4 +115,56 @@ GO
 
 ALTER DATABASE [FarmersMarket] SET  READ_WRITE 
 GO
+
+
+/*TABLES*/
+USE [FarmersMarket]
+GO
+
+/****** Object:  Table [dbo].[Products]    Script Date: 2023-06-03 2:11:48 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Products](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [varchar](50) NOT NULL,
+	[Amount] [float] NOT NULL,
+	[price] [money] NOT NULL,
+ CONSTRAINT [PK_Products] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+USE [FarmersMarket]
+GO
+
+/****** Object:  Table [dbo].[sales]    Script Date: 2023-06-03 2:12:38 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[sales](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[date] [varchar](50) NOT NULL,
+	[product] [varchar](50) NOT NULL,
+	[quantity] [float] NOT NULL,
+	[price] [money] NOT NULL,
+	[total] [float] NOT NULL,
+ CONSTRAINT [PK_sales] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+
+
 

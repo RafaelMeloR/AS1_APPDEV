@@ -90,12 +90,18 @@ namespace AS1
             }
 
             //Threading for handling database operations
-            public static async void Set(string query)
+            public static async 
+            //Threading for handling database operations
+            Task
+            Set(string query)
             {
                 try
                 {
                     establishConnection();
-                    await con.OpenAsync();
+                    if (con.State != ConnectionState.Open)
+                    {
+                        await con.OpenAsync();
+                    }
                     using (cmd = new SqlCommand(query, con))
                     {
                         await cmd.ExecuteNonQueryAsync();

@@ -40,15 +40,15 @@ namespace AS1
             ProductId.Text = "";
         }
 
-        private void createBtn_Click_1(object sender, RoutedEventArgs e)
+        private async void createBtn_Click_1Async(object sender, RoutedEventArgs e)
         {
             string query = "INSERT INTO [dbo].[Products] VALUES ('"+producName.Text+"','"+Amount.Text+"','"+Price.Text+"')";
-            utilities.sql.Set(query);
+            await utilities.sql.Set(query);
             utilities.AS1.show(grid);
             clean();
         }
 
-        private void EditBtn_Click(object sender, RoutedEventArgs e)
+        private async void EditBtn_ClickAsync(object sender, RoutedEventArgs e)
         {
             if (ProductId.Text == "")
             {
@@ -57,13 +57,13 @@ namespace AS1
             else
             {
                 string query = "Update [dbo].[Products] Set [name] = '" + producName.Text + "',[Amount] ='" + Amount.Text + "',[price] ='" + Price.Text + "' Where [Id]=" + ProductId.Text + "";
-                utilities.sql.Set(query);
+                await utilities.sql.Set(query);
                 utilities.AS1.show(grid);
                 clean();
             }
         }
 
-        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
+        private async void DeleteBtn_ClickAsync(object sender, RoutedEventArgs e)
         {
             if (delete == false)
             {
@@ -72,7 +72,7 @@ namespace AS1
             else
             {
                 string query = "Delete From [dbo].[Products] Where [Id]=" + ProductId.Text + "";
-                utilities.sql.Set(query);
+                await utilities.sql.Set(query);
                 utilities.AS1.show(grid);
                 delete = false;
             }

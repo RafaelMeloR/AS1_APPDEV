@@ -24,9 +24,9 @@
         <TextBox x:Name="ProductId" HorizontalAlignment="Left" Margin="184,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" FontSize="20" Height="38" IsEnabled="False"/>
         <TextBox x:Name="Amount" HorizontalAlignment="Left" Margin="184,274,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" FontSize="20" Height="37" PreviewTextInput="Amount_PreviewTextInput"/>
         <TextBox x:Name="Price" HorizontalAlignment="Left" Margin="184,321,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" FontSize="20" Height="37" PreviewTextInput="Price_PreviewTextInput"/>
-        <Button x:Name="createBtn" Content="Create" HorizontalAlignment="Left" Margin="42,389,0,0" VerticalAlignment="Top" FontSize="30" Height="92" Width="110" Click="createBtn_Click_1"/>
-        <Button x:Name="EditBtn" Content="Edit" HorizontalAlignment="Left" Margin="165,389,0,0" VerticalAlignment="Top" FontSize="30" Height="92" Width="110" Click="EditBtn_Click"/>
-        <Button x:Name="DeleteBtn" Content="Delete" HorizontalAlignment="Left" Margin="292,389,0,0" VerticalAlignment="Top" FontSize="30" Height="92" Width="110" Click="DeleteBtn_Click" RenderTransformOrigin="1.367,0.397"/>
+        <Button x:Name="createBtn" Content="Create" HorizontalAlignment="Left" Margin="42,389,0,0" VerticalAlignment="Top" FontSize="30" Height="92" Width="110" Click="createBtn_Click_1Async"/>
+        <Button x:Name="EditBtn" Content="Edit" HorizontalAlignment="Left" Margin="165,389,0,0" VerticalAlignment="Top" FontSize="30" Height="92" Width="110" Click="EditBtn_ClickAsync"/>
+        <Button x:Name="DeleteBtn" Content="Delete" HorizontalAlignment="Left" Margin="292,389,0,0" VerticalAlignment="Top" FontSize="30" Height="92" Width="110" Click="DeleteBtn_ClickAsync" RenderTransformOrigin="1.367,0.397"/>
         <Menu Height="46" VerticalAlignment="Top">
             <CalendarButton Content="Home" FontSize="16" Click="CalendarButton_Click_1"/>
             <CalendarButton Content="Exit" Click="CalendarButton_Click" FontSize="16"/>

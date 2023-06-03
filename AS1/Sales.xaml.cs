@@ -104,14 +104,16 @@ namespace AS1
             
         }
 
-        private void buyBtn_Click(object sender, RoutedEventArgs e)
+        private async void buyBtn_Click(object sender, RoutedEventArgs e)
         {
                 double total = 0;
                 String query = "";
                 foreach (var item in gridBuy.Items)
                 {
                     query = "update [dbo].[Products] set Amount=(select Amount from [dbo].[Products] where id=" + ((dynamic)item).ProductId + ")-(" + ((dynamic)item).quantity + ") where id=" + ((dynamic)item).ProductId + "";
-                    utilities.sql.Set(query);
+                    await utilities.sql.Set(query);
+                    query = "INSERT INTO [dbo].[sales] VALUES ('"+DateTime.Now+"','"+ ((dynamic)item).producName + "',"+ double.Parse(((dynamic)item).quantity) + ","+ double.Parse(((dynamic)item).Price) + ","+(double.Parse(((dynamic)item).quantity) *double.Parse(((dynamic)item).Price)) +")";
+                    await utilities.sql.Set(query);
                     total += double.Parse(((dynamic)item).Price) * double.Parse(((dynamic)item).quantity);
                 }
                 MessageBox.Show(Convert.ToString("Total amount to pay is:" + total));
