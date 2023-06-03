@@ -15,8 +15,11 @@
     <Grid>
         <Menu Height="46"   VerticalAlignment="Top">
             <CalendarButton Content="Admin" Click="CalendarButton_Click_1" FontSize="16"/>
+            <CalendarButton Content="Sales" FontSize="16" Click="CalendarButton_Click_2"/>
             <CalendarButton Content="Exit" Click="CalendarButton_Click" FontSize="16"/>
         </Menu>
+        <Button x:Name="admin" Content="Admin Panel" Margin="308,352,308,0" FontSize="72" FontWeight="Bold" Click="admin_Click" Height="212" VerticalAlignment="Top"/>
+        <Button x:Name="sales" Content="Sales" Margin="308,115,308,0" VerticalAlignment="Top" Height="212" FontSize="72" FontWeight="Bold" Click="sales_Click"/>
 
     </Grid>
 </Window>

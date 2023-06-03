@@ -36,5 +36,25 @@ namespace AS1
             admin.Show();
             Close();
         }
+
+        private void CalendarButton_Click_2(object sender, RoutedEventArgs e)
+        {
+            Sales sales = new Sales();
+            sales.Show(); Close();
+
+        }
+
+        private void admin_Click(object sender, RoutedEventArgs e)
+        {
+            Admin admin = new Admin();
+            admin.Show();
+            Close();
+        }
+
+        private void sales_Click(object sender, RoutedEventArgs e)
+        {
+            Sales sales = new Sales();
+            sales.Show(); Close();
+        }
     }
 }

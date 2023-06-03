@@ -27,20 +27,10 @@ namespace AS1
         public Admin()
         {
             InitializeComponent();
-            show();
+            utilities.AS1.show(grid);
         }
       
-        private void show()
-        {
-            string query = "Select * from Products";
-            DataTable dt;
-            dt= utilities.sql.Get(query);
-            dt.Columns[0].ColumnName = "Id";
-            dt.Columns[1].ColumnName = "Name";
-            dt.Columns[2].ColumnName = "Amount";
-            dt.Columns[3].ColumnName = "Price";
-            grid.ItemsSource = dt.DefaultView;
-        }
+     
 
         private void clean()
         {
@@ -54,7 +44,7 @@ namespace AS1
         {
             string query = "INSERT INTO [dbo].[Products] VALUES ('"+producName.Text+"','"+Amount.Text+"','"+Price.Text+"')";
             utilities.sql.Set(query);
-            show();
+            utilities.AS1.show(grid);
             clean();
         }
 
@@ -68,7 +58,7 @@ namespace AS1
             {
                 string query = "Update [dbo].[Products] Set [name] = '" + producName.Text + "',[Amount] ='" + Amount.Text + "',[price] ='" + Price.Text + "' Where [Id]=" + ProductId.Text + "";
                 utilities.sql.Set(query);
-                show();
+                utilities.AS1.show(grid);
                 clean();
             }
         }
@@ -83,12 +73,12 @@ namespace AS1
             {
                 string query = "Delete From [dbo].[Products] Where [Id]=" + ProductId.Text + "";
                 utilities.sql.Set(query);
-                show();
+                utilities.AS1.show(grid);
                 delete = false;
             }
 
-            
-            show();
+
+            utilities.AS1.show(grid);
             clean();
         }
 
@@ -97,10 +87,7 @@ namespace AS1
             DataRowView selected_row = grid.SelectedItem as DataRowView;
             if (selected_row != null)
             {
-                ProductId.Text = selected_row[0].ToString();
-                producName.Text = selected_row[1].ToString();
-                Amount.Text = selected_row[2].ToString();
-                Price.Text = selected_row[3].ToString();
+                utilities.AS1.copyToTextBox(this,selected_row);
                 delete = true;
             }
            
@@ -108,7 +95,7 @@ namespace AS1
 
         private void CalendarButton_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            Environment.Exit(0);
         }
 
         private void CalendarButton_Click_1(object sender, RoutedEventArgs e)

@@ -1,0 +1,59 @@
+﻿<Window x:Class="AS1.Sales"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AS1"
+        mc:Ignorable="d"
+        Title="Sales" Height="550" Width="1070"  WindowStyle="None"
+        BorderBrush="Black"
+        BorderThickness="1"
+        AllowsTransparency="True" 
+         WindowState="Maximized"
+        SizeToContent="Manual">
+
+    <Grid>
+        <Border BorderBrush="#FF7D7D7D" BorderThickness="1" HorizontalAlignment="Left" Height="389" Margin="30,123,0,0" VerticalAlignment="Top" Width="384">
+            <Label Content="Quantity" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Height="37" Width="138" Margin="6,216,0,0"/>
+        </Border>
+        <DataGrid x:Name="grid" Margin="442,136,44,0" MouseLeftButtonUp="grid_MouseLeftButtonUp" Height="169" VerticalAlignment="Top"/>
+        <Label Content="Product Name" HorizontalAlignment="Left" Margin="37,197,0,0" VerticalAlignment="Top" FontSize="20" Height="38" Width="138"/>
+        <Label Content="Product ID" HorizontalAlignment="Left" Margin="37,155,0,0" VerticalAlignment="Top" FontSize="20" Height="38" Width="138"/>
+        <Label Content="Amount (Kg)" HorizontalAlignment="Left" Margin="37,247,0,0" VerticalAlignment="Top" FontSize="20" Height="37" Width="138"/>
+        <Label Content="Price (CAD/Kg)" HorizontalAlignment="Left" Margin="37,295,0,0" VerticalAlignment="Top" FontSize="20" Height="37" Width="138"/>
+        <TextBox x:Name="producName" HorizontalAlignment="Left" Margin="184,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" FontSize="20" Height="33" IsEnabled="False"/>
+        <TextBox x:Name="ProductId" HorizontalAlignment="Left" Margin="184,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" FontSize="20" Height="38" IsEnabled="False"/>
+        <TextBox x:Name="Amount" HorizontalAlignment="Left" Margin="184,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" FontSize="20" Height="37" IsEnabled="False"/>
+        <TextBox x:Name="Price" HorizontalAlignment="Left" Margin="184,295,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" FontSize="20" Height="37"  IsEnabled="False"/>
+        <Button x:Name="addBtn" Content="Add" HorizontalAlignment="Left" Margin="42,389,0,0" VerticalAlignment="Top" FontSize="30" Height="92" Width="177" Click="createBtn_Click_1"/>
+        <Button x:Name="buyBtn" Content="Buy" HorizontalAlignment="Left" Margin="227,389,0,0" VerticalAlignment="Top" FontSize="30" Height="92" Width="177" RenderTransformOrigin="1.367,0.397" Click="buyBtn_Click"/>
+        <Menu Height="46" VerticalAlignment="Top">
+            <CalendarButton Content="Home" FontSize="16" Click="CalendarButton_Click_1"/>
+            <CalendarButton Content="Exit" Click="CalendarButton_Click" FontSize="16"/>
+        </Menu>
+        <Label Content="Products" HorizontalAlignment="Left" Margin="45,97,0,0" VerticalAlignment="Top" Background="White" FontSize="30" FontWeight="Bold"/>
+        <Label Content="Sales" HorizontalAlignment="Center" Margin="0,53,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
+        <DataGrid x:Name="gridBuy" AutoGenerateColumns="False" Margin="442,340,44,39">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding ProductId}"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding producName}"/>
+                <DataGridTextColumn Header="Amount Available" Binding="{Binding Amount}"/>
+                <DataGridTextColumn Header="Price per KG" Binding="{Binding Price}"/>
+                <DataGridTextColumn Header="Quantity (KG)" Binding="{Binding quantity}"/>
+                <DataGridTemplateColumn Header="Delete" Width="75">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Delete" Tag="{Binding}" Click="OnDelete"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="List of Products" HorizontalAlignment="Left" Margin="442,110,0,0" VerticalAlignment="Top"/>
+        <Label Content="Your products" HorizontalAlignment="Left" Margin="442,314,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="quantity" HorizontalAlignment="Left" Margin="184,343,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" FontSize="20" Height="37" PreviewTextInput="quantity_PreviewTextInput" />
+        <TextBox x:Name="totalT" Margin="0,309,45,0" TextWrapping="Wrap" Text="0.00" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" IsEnabled="False" HorizontalAlignment="Right" Width="128"/>
+        <Label Content="Total" Margin="839,305,178,0" VerticalAlignment="Top" Height="30" FontWeight="Bold" FontSize="16"/>
+
+    </Grid>
+</Window>

@@ -28,3 +28,5 @@ C:\Users\Dell1\Documents\GitHub\APPLICATION-DEVELOPMENT-1\AS1\AS1_APPDEV\AS1\bin
 C:\Users\Dell1\Documents\GitHub\APPLICATION-DEVELOPMENT-1\AS1\AS1_APPDEV\AS1\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Dell1\Documents\GitHub\APPLICATION-DEVELOPMENT-1\AS1\AS1_APPDEV\AS1\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\Dell1\Documents\GitHub\APPLICATION-DEVELOPMENT-1\AS1\AS1_APPDEV\AS1\obj\Debug\net6.0-windows\AS1.csproj.CopyComplete
+C:\Users\Dell1\Documents\GitHub\APPLICATION-DEVELOPMENT-1\AS1\AS1_APPDEV\AS1\obj\Debug\net6.0-windows\Sales.g.cs
+C:\Users\Dell1\Documents\GitHub\APPLICATION-DEVELOPMENT-1\AS1\AS1_APPDEV\AS1\obj\Debug\net6.0-windows\Sales.baml
